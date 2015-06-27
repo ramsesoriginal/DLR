@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11484152}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winscreen: {fileID: 0}
+  lostScreen: {fileID: 0}
 --- !u!136 &13667682
 CapsuleCollider:
   m_ObjectHideFlags: 1

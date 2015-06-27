@@ -4,6 +4,7 @@ using System.Collections;
 public class Win : MonoBehaviour {
 
 	public GameObject winscreen;
+	public GameObject lostScreen;
 
 	// Use this for initialization
 	void Start () {
