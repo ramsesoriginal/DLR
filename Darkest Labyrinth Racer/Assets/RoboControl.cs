@@ -22,6 +22,12 @@ public class RoboControl : MonoBehaviour {
 	public float speed;
 
 	public GameObject Wings;
+	public GameObject Wingstimer;
+
+	private float deployTime;
+
+	public float WingsLastTime;
+
 
 	// Use this for initialization
 	void Start () {
@@ -45,6 +51,7 @@ public class RoboControl : MonoBehaviour {
 		speed = rig.velocity.magnitude;
 		if (Land) {
 			Wings.SetActive(false);
+			Wingstimer.SetActive(false);
 			rig.useGravity = true;
 			if (v > 0.1f || v < -0.1f) {
 					rig.AddForce (v * landAccel * transform.forward, ForceMode.Acceleration);
@@ -52,11 +59,12 @@ public class RoboControl : MonoBehaviour {
 			if (h < 0.1f || h > -0.1f) {
 					transform.RotateAround (transform.position, Vector3.up, h * landSteer);
 			}
-			if (Input.GetButton ("Jump")) {
+			if (Input.GetButtonDown ("Jump")) {
 				
 				if (speed > launchspeed) {
 					rig.AddForce (rig.velocity.magnitude * jumpForce * Vector3.up, ForceMode.Impulse);
 					Land = false;
+					deployTime = Time.time;
 				}
 			}
 			Stabilize ();
@@ -76,10 +84,11 @@ public class RoboControl : MonoBehaviour {
 			rig.AddForce(transform.forward * updrift,ForceMode.Acceleration);*/
 			if (justswitched) {
 				Wings.SetActive(true);
+				Wingstimer.SetActive(true);
 				rig.useGravity = false;
 				rig.velocity = Vector3.zero;
 				//transform.RotateAround(transform.position, transform.right, 0);
-				transform.position = transform.position + Vector3.up*30;
+				transform.position = transform.position + Vector3.up*5;
 				justswitched = false;
 				rig.AddForce(transform.forward * speed * updrift,ForceMode.Impulse);
 			} else {
@@ -87,6 +96,7 @@ public class RoboControl : MonoBehaviour {
 				rig.velocity = transform.forward * 5;
 			}
 
+			Wingstimer.GetComponentInChildren<UnityEngine.UI.Text>().text = (Time.time - (deployTime + WingsLastTime)).ToString ("F3");
 
 			//rig.AddForce(transform.forward);
 			//var down = (-Vector3.up * (9.8f - updrift * speed)) ;
@@ -105,8 +115,11 @@ public class RoboControl : MonoBehaviour {
 			if (!moved) {
 				Stabilize ();
 			}
-			if (Input.GetButton ("Jump")) {
+			if (Input.GetButtonDown ("Jump")) {
 					Land = true;
+			}
+			if ((deployTime + WingsLastTime) < Time.time) {
+				Land = true;
 			}
 		}
 	}

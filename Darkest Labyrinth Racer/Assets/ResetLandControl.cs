@@ -16,7 +16,7 @@ public class ResetLandControl : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		Debug.Log ("Collision");
+		//Debug.Log ("Collision");
 		player.GetComponent<RoboControl> ().Land = true;
 		var y = player.eulerAngles.y;
 		player.eulerAngles = new Vector3 (0, y, 0);

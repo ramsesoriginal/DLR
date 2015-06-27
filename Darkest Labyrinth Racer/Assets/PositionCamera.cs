@@ -17,7 +17,7 @@ public class PositionCamera : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (control.Land) {
-			transform.position = Vector3.Lerp (transform.position, player.position + new Vector3 (0, 40f, 0) - player.forward * 2f, followSpeed);
+			transform.position = Vector3.Lerp (transform.position, player.position + new Vector3 (0, 15f, 0) - player.forward * 12f, followSpeed);
 			transform.LookAt (player.position);
 		} else {
 			transform.position = Vector3.Lerp (transform.position, player.position + player.up * 3f - player.forward * 12f, flyFollow);

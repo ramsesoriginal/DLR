@@ -28,7 +28,7 @@ public class MazeGenerator : MonoBehaviour {
 	}
 
 	void Start() {
-		Debug.Log(string.Format("Generating maze with size {0},{1}",width,height));
+		//Debug.Log(string.Format("Generating maze with size {0},{1}",width,height));
 		maze = new GameObject[width,height];
 		maze [0,0] = gameObject;
 		transform.position = Vector3.zero;
@@ -36,10 +36,10 @@ public class MazeGenerator : MonoBehaviour {
 		int endY = (int)((height) / 2);
 		maze [endX,endY] = endTile;
 		endTile.transform.position = new Vector3 (endX,0,endY)*tileSize;
-		Debug.Log("looping over Tiles");
+		//Debug.Log("looping over Tiles");
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
-				Debug.Log(string.Format("Tile {0},{1}",x,y));
+				//Debug.Log(string.Format("Tile {0},{1}",x,y));
 				if (maze [x,y] == null) {
 					GameObject[] choice;
 					if (x == 0) {

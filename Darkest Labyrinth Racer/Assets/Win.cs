@@ -16,9 +16,11 @@ public class Win : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter() {
-		Time.timeScale = 0.05f;
-		winscreen.SetActive (true);
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Player") {
+			Time.timeScale = 0.05f;
+			winscreen.SetActive (true);
+		}
 	}
 
 }
