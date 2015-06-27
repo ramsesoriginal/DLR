@@ -634,7 +634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Land: 1
   landAccel: 15
-  landSteer: 5
+  landSteer: 3
   jumpForce: 2
   Stability: 3
   StabilizeSpeed: 10
@@ -642,7 +642,8 @@ MonoBehaviour:
   airBrake: .995000005
   rollSpeed: 1
   pitchSpeed: 1
-  speed: 0
+  launchspeed: 0
+  speed: 15
 --- !u!114 &11476848
 MonoBehaviour:
   m_ObjectHideFlags: 1
