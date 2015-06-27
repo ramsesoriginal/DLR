@@ -17,6 +17,7 @@ public class RoboControl : MonoBehaviour {
 
 
 	private bool justswitched;
+	public float launchspeed;
 
 	public float speed;
 	// Use this for initialization
@@ -50,7 +51,7 @@ public class RoboControl : MonoBehaviour {
 			}
 			if (Input.GetButton ("Jump")) {
 				
-				if (speed > 20) {
+				if (speed > launchspeed) {
 					rig.AddForce (rig.velocity.magnitude * jumpForce * Vector3.up, ForceMode.Impulse);
 					Land = false;
 				}
@@ -71,16 +72,12 @@ public class RoboControl : MonoBehaviour {
 			
 			rig.AddForce(transform.forward * updrift,ForceMode.Acceleration);*/
 			if (justswitched) {
-				if (speed > 20) {
-					rig.useGravity = false;
-					rig.velocity = Vector3.zero;
-					//transform.RotateAround(transform.position, transform.right, 0);
-					transform.position = transform.position + Vector3.up*5;
-					justswitched = false;
-					rig.AddForce(transform.forward * speed * updrift,ForceMode.Impulse);
-				} else {
-					Land = true;
-				}
+				rig.useGravity = false;
+				rig.velocity = Vector3.zero;
+				//transform.RotateAround(transform.position, transform.right, 0);
+				transform.position = transform.position + Vector3.up*5;
+				justswitched = false;
+				rig.AddForce(transform.forward * speed * updrift,ForceMode.Impulse);
 			} else {
 				rig.velocity = Vector3.zero;
 				rig.velocity = transform.forward * 5;

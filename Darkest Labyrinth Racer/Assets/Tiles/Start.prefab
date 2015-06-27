@@ -642,6 +642,7 @@ MonoBehaviour:
   airBrake: .995000005
   rollSpeed: 1
   pitchSpeed: 1
+  speed: 0
 --- !u!114 &11476848
 MonoBehaviour:
   m_ObjectHideFlags: 1
