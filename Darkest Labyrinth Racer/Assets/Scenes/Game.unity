@@ -528,26 +528,6 @@ Prefab:
       propertyPath: endTile
       value: 
       objectReference: {fileID: 540782600}
-    - target: {fileID: 193658, guid: e4cef996455f4234ba073237fc0a0540, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 166058, guid: e4cef996455f4234ba073237fc0a0540, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 173382, guid: e4cef996455f4234ba073237fc0a0540, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 154252, guid: e4cef996455f4234ba073237fc0a0540, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 135728, guid: e4cef996455f4234ba073237fc0a0540, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4cef996455f4234ba073237fc0a0540, type: 2}
   m_IsPrefabParent: 0

@@ -20,6 +20,9 @@ public class RoboControl : MonoBehaviour {
 	public float launchspeed;
 
 	public float speed;
+
+	public GameObject Wings;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -41,7 +44,7 @@ public class RoboControl : MonoBehaviour {
 		
 		speed = rig.velocity.magnitude;
 		if (Land) {
-			
+			Wings.SetActive(false);
 			rig.useGravity = true;
 			if (v > 0.1f || v < -0.1f) {
 					rig.AddForce (v * landAccel * transform.forward, ForceMode.Acceleration);
@@ -72,10 +75,11 @@ public class RoboControl : MonoBehaviour {
 			
 			rig.AddForce(transform.forward * updrift,ForceMode.Acceleration);*/
 			if (justswitched) {
+				Wings.SetActive(true);
 				rig.useGravity = false;
 				rig.velocity = Vector3.zero;
 				//transform.RotateAround(transform.position, transform.right, 0);
-				transform.position = transform.position + Vector3.up*5;
+				transform.position = transform.position + Vector3.up*30;
 				justswitched = false;
 				rig.AddForce(transform.forward * speed * updrift,ForceMode.Impulse);
 			} else {
@@ -100,6 +104,9 @@ public class RoboControl : MonoBehaviour {
 			}
 			if (!moved) {
 				Stabilize ();
+			}
+			if (Input.GetButton ("Jump")) {
+					Land = true;
 			}
 		}
 	}
