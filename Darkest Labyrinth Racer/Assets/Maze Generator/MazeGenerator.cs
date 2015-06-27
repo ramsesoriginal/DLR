@@ -66,7 +66,7 @@ public class MazeGenerator : MonoBehaviour {
 						var ranValue = Random.Range(0f,1f);
 						if (ranValue < .6f) {
 							choice = FrequentTiles;
-						} else if (ranValue < .3f) {
+						} else if (ranValue < .9f) {
 							choice = MediumTiles;
 						} else {
 							choice = RareTiles;
